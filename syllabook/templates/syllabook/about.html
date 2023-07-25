@@ -1,0 +1,44 @@
+{% extends "syllabook/base.html" %}
+{% load static %}
+{% block title %} About {% endblock %}
+
+{% block content %}
+<div class="pl-10 md:pr-10 pt-10 h-screen w-[calc(100vw-16rem)] flex flex-col gap-10">
+    <h1 class="font-bold text-5xl uppercase">About</h1>
+    <h1>We are student of Technological Insitute of the Philippines and were taking Bachelor in computer Engineering,
+        and this is our software design project for school year of 2022-2023. Our adviser is jointathan</h1>
+    <div
+        class="grid grid-cols-1 md:grid md:grid-cols-3 xl:grid xl:grid-cols-5 gap-x-10 gap-y-5 overflow-y-auto overscroll-contain">
+        <div class="bg-yellow-400 p-5 flex flex-col items-center text-center justify-evenly rounded-t-xl">
+            <img src="{% static 'syllabook/images/gran.jpg' %}" class="w-32 rounded-lg" alt="Gran">
+            <h class="mt-2"> Zulueta, Gran</h>
+            <h> Group leader</h>
+            <h> 5th year Computer Engineer major in Railway Engineering </h>
+        </div>
+        <div class="bg-yellow-400 p-5 flex flex-col items-center text-center justify-evenly rounded-t-xl">
+            <img src="{% static 'syllabook/images/kel.jpg' %}" class="w-32 rounded-lg" alt="Gran">
+            <h class="mt-2"> Sahak, Michael</h>
+            <h> Secretary</h>
+            <h> 4th year Computer Engineer Major in Intelligence System</h>
+        </div>
+        <div class="bg-yellow-400 p-5 flex flex-col items-center text-center justify-evenly rounded-t-xl">
+            <img src="{% static 'syllabook/images/jam.png' %}" class="w-32 rounded-lg" alt="Gran">
+            <h class="mt-2"> Fajilagutan, Jam Fiona</h>
+            <h> Manager</h>
+            <h> 4th year Computer Engineer Major in System Administration</h>
+        </div>
+        <div class="bg-yellow-400 p-5 flex flex-col items-center text-center justify-evenly rounded-t-xl">
+            <img src="{% static 'syllabook/images/janel.jpg' %}" class="w-32 rounded-lg" alt="Gran">
+            <h class="mt-2"> del Rosario, Janel Candince</h>
+            <h> Aesthetic</h>
+            <h> 4th year Computer Engineer Major in System Administration</h>
+        </div>
+        <div class="bg-yellow-400 p-5 flex flex-col items-center text-center justify-evenly rounded-t-xl">
+            <img src="{% static 'syllabook/images/ma.jpg' %}" class="w-32 rounded-lg" alt="Gran">
+            <h class="mt-2"> Bucog, Mariel</h>
+            <h> Supervisor</h>
+            <h> 4th year Computer Engineer Major in System Administration</h>
+        </div>
+    </div>
+</div>
+{% endblock content %}

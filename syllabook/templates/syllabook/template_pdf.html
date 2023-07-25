@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      body {
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 16px;
+      }
+
+      div{
+        margin-bottom: 100px;
+      }
+
+      p {
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 1.2;
+      }
+
+      .prof {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        text-align: center;
+        text-decoration: underline;
+      }
+
+
+      h1 {
+        font-size: 18px;
+        margin-top: 30px;
+        margin-bottom: -5px;
+      }
+
+      h2 {
+        font-size: 16px;
+        text-align: left;
+        font-weight: bold;
+      }
+
+      h3 {
+        font-size: 11px;
+        text-align: right;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: normal;
+        font-style: italic;
+      }
+
+      h4.name {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 0.6rem;
+        text-align: left;
+        font-weight: normal;
+      }
+
+      h4.position{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 10px;
+        text-align: center;
+        font-weight: normal;
+      }
+      
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        text-align: justify;
+        padding-left:5px;
+        padding-right: 5px;
+        padding-top: 3px;
+        padding-bottom: -2px;
+        margin: auto;
+        
+      }
+      
+      th {
+        width:30%;
+      }
+
+      th.content {
+        padding-bottom: 2px;
+      }
+
+      td.content {
+        padding-bottom: 1px;
+      }
+
+      td {
+        width: 70%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div>
+      {% for post in posts %}
+      <div>
+        <h3> TIP-VPAA-001Revision Status/Date: 3/{{ post.date_posted|date:"Y M d" }}</h3>
+      </div>
+      {% endfor %}
+      <table>
+        <thead>
+          <h1> TECHNOLOGICAL INSTITUTE OF THE PHILIPPINES <br> COURSE SYLLABUS</h1>
+        </thead>
+        <tbody>
+          
+          {% for post in posts %}
+          <tr>
+            <th><h2>COURSE CODE<br>COURSE NAME</h2></th>
+            <td colspan="2"><p>{{ post.course_code|safe }}<br>{{ post.course_name|safe }}</p></td>
+          </tr>
+          {% endfor %}
+
+          {% for post in posts %}
+          <tr>
+            <th><h2>CREDITS<br>CONTACT HOURS </h2></th>
+            <td colspan="2"><p>{{ post.credits|safe }} units lecture <br> {{ post.contact_hours|safe }} unit laboratory</p></td>
+          </tr>
+          {% endfor %}
+
+          {% for post in posts %}
+          <tr>
+            <th><h2>INSTRUCTOR</h2></th>
+            <td class="content" colspan="2"><p>{{ post.instructor|safe }} <br> {{ post.position|safe }}</p></td>
+          </tr>
+          {% endfor %}
+
+          {% for post in posts %}
+          <tr>
+            <th><h2>TEXTBOOK</h2></th>
+            <td class="content" colspan="2"> <p>{{ post.textbook|safe }}</p></td>
+          </tr>
+          {% endfor %}
+
+          {% for post in posts %}
+          <tr>
+            <th><h2>Other Supplemental<br>Materials</h2></th>
+            <td class="content" colspan="2"><p>{{ post.other_supplementary_material|safe }}</p></td>
+          </tr>
+          {% endfor %}
+
+          <tr>
+            <th colspan="3"><h2 class="name">SPECIFIC COURSE INFORMATION</h2></th>
+          </tr>
+          <tr>
+            <th colspan="3"><h2>a. Course Description</h2></th>
+          </tr>
+          {% for post in posts %}
+          <tr>
+            <th class="content" colspan="3"><p>{{ post.course_description|safe }}</p></th>
+          </tr>
+          {% endfor %}
+
+          {% for post in posts %}
+          <tr>
+            <th><h2>b. Prerequisites<br>Co-requisites</h2></th>
+            <td colspan="2"> <p>{{ post.prerequisites|safe }} <br> {{ post.corequisites|safe }}</p></td>
+          </tr>
+          {% endfor %}
+
+          {% for post in posts %}
+          <tr>
+            <th><h2 >c. Course Classification (Required/elective/<br>selected elective)</h2></th>
+            <td colspan="2"><p>{{ post.course_classification|safe }}</p></td>
+          </tr>
+          {% endfor %}
+          
+          <tr>
+            <th colspan="3"><h2 class="name">SPECIFIC GOALS FOR THE COURSE</h2></th>
+          </tr>
+
+          <tr>
+            <th colspan="3"><h2 class="name">a. Course Objective</h2></th>
+          </tr>
+
+          {% for post in posts %}
+          <tr>
+            <th class="content" colspan="3"><p>{{ post.course_objective|safe }}</p></th>
+          </tr>
+          {% endfor %}
+
+          <tr>
+            <th colspan="3"><h2 class="name">b. Course Outcomes</h2></th>
+          </tr>
+          
+          {% for post in posts %}
+          <tr>
+            <th class="content" colspan="3"><p>{{ post.course_outcomes|safe }}</p></th>
+          </tr>
+          {% endfor %}
+
+          <tr>
+            <th colspan="3"><h2 class="name">c.  Student Outcomes Addressed by the Course</h2></th>
+          </tr>
+
+          {% for post in posts %}
+          <tr>
+            <th class="content" colspan="3"><p>{{ post.student_outcome_addressed_by_the_course|safe }}</p></th>
+          </tr>
+          {% endfor %}
+
+          <tr>
+            <th colspan="3"><h2 class="name">COURSE TOPICS</h2></th>
+          </tr>
+
+          {% for post in posts %}
+          <tr>
+            <th class="content" colspan="3"><p>{{ post.course_topics|safe }}</p></th>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div>
+      <table>
+        <tbody>
+          <tr>
+            {% for post in posts %}
+            <th class="1h" colspan="3">
+              <h4 class="name">Prepared by:</h4>
+              <p1 class="prof">{{ post.prepared|safe }}</p1>
+              <h4 class="position">Faculty Member’s Printed Name and Signature</h4>
+            </th>
+            {% endfor %}
+  
+            {% for post in posts %}
+            <th class="2h" colspan="3">
+              <h4 class="name">Noted by:</h4>
+              <p1 class="prof"> {{ post.noted|safe }} </p1>
+              <h4 class="position">Department Chair</h4>
+            </th>
+            {% endfor %}
+  
+            {% for post in posts %}
+            <th class="3h" colspan="3">
+              <h4 class="name">Approved to take effect on 1st Sem SY 2022-2023</h4>
+              <p1 class="prof"> {{ post.marked|safe }} </p1>
+              <h4 class="position">Dean/VPAA</h4>
+            </th>
+            {% endfor %}
+          </tr>
+  
+          <tr>
+            <th colspan="3">
+              <p> Date: </p>
+            </th>
+            <th colspan="3">
+              <p> Date: </p>
+            </th>
+            <th colspan="3">
+              <p> Date: </p>
+            </th>
+          </tr>
+  
+        </tbody>
+      </table>
+    </div>
+
+  </body>
+</html>

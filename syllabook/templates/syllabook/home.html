@@ -1,0 +1,54 @@
+{% extends "syllabook/base.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="pl-10 md:pr-10 pt-10 h-screen w-[calc(100vw-16rem)] flex flex-col gap-10">
+    <h1 class="font-bold text-5xl uppercase">Home</h1>
+    <div
+        class="grid grid-cols-1 md:grid md:grid-cols-3 xl:grid xl:grid-cols-4 gap-x-10 gap-y-5 overflow-y-auto overscroll-contain">
+        {% for post in posts %}
+        <div class="h-34 rounded-xl bg-yellow-400 border-2 border-white/50">
+            <div class="flex flex-col items-center text-center justify-between h-36 p-3">
+                <div class="flex flex-col">
+                    <h1 class="font-bold truncate">Course code: {{ post.course_code }}</h1>
+                    <h1 class="font-bold truncate">Course name: {{ post.course_name }}</h1>
+                    <div class="flex flex-row gap-2">
+                        <h1 class="font-bold">{{ post.credits }} Units</h1>
+                        <h1 class="font-bold">{{post.contact_hours}} Lecture</h1>
+                    </div>
+                </div>
+                <div class="flex flex-row gap-5">
+                    <a href="{% url 'template_pdf' post.id %}"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 stroke-white">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15M9 12l3 3m0 0l3-3m-3 3V2.25" />
+                        </svg></a>
+                    <a href="{% url 'post-update' post.id %}"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 stroke-white">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                        </svg></a>
+                    <a href="{% url 'post-delete' post.id %}"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 stroke-white">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                        </svg></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="h-34 rounded-xl bg-yellow-400 border-2 border-white/50">
+            <div class="flex justify-center items-center h-36">
+                <a href="{% url 'post-create' %}" class="font-bold text-2xl">Create new</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<h1 class=""> Login to our website!</h1>
+
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends "syllabook/base.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<div class="flex flex-col pl-72 pt-10">
+    <div class="bg-white w-[65rem] h-[45rem] p-16 rounded-lg flex flex-col justify-start text-xl">
+        <h class="font-bold"> Course code: <h class="font-normal"> {{ post.course_code|safe }}</h> </h>
+        <h class="font-bold"> Course name: <h class="font-normal"> {{ post.course_name|safe }}</h> </h>
+        <h class="font-bold"> Units <h class="font-normal"> {{ post.credits|safe }}</h></h>
+        <h class="font-bold"> Laboratory <h class="font-normal">  {{post.contact_hours|safe }}</h></h>
+        <h class="font-bold"> Instructor <h class="font-normal">{{ post.instructor|safe }}</h></h>
+        <h class="font-normal"> {{ post.position|safe }}</h>
+        <h class="font-bold"> Course description <h class="font-normal"> <br> {{ post.course_description|safe }}</h></h>
+        <h class="font-bold"> Prepared by: <h class="font-normal"> {{ post.prepared|safe }}</h></h>
+        <h class="font-bold"> Noted by: <h class="font-normal"> {{ post.noted|safe }}</h></h>
+        <h class="font-bold"> Approved by: <h class="font-normal"> {{ post.marked|safe }} </h></h>
+    </div>
+</div>
+{% endblock content %}
